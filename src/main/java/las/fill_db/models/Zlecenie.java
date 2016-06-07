@@ -1,0 +1,32 @@
+package las.fill_db.models;
+
+import java.sql.ResultSet;
+import java.util.Map;
+
+/**
+ * Zlecenie
+ * Created by Development on 23.04.2016.
+ */
+public class Zlecenie extends DbModel {
+
+    public final static String ID_WYCINKI = "id_wycinki_FK4";
+    public final static String NR_PESEL = "nr_pesel_FK";
+
+    public Zlecenie(int idWycinki, String pesel) {
+        super();
+        fields.put(ID_WYCINKI, idWycinki);
+        fields.put(NR_PESEL, pesel);
+    }
+
+    public Zlecenie(ResultSet resultSet) {
+        super(resultSet);
+    }
+    public Zlecenie(Map fields) {
+        super(fields);
+    }
+
+    @Override
+    protected void init() {
+        tableName = "zlecenie";
+    }
+}
